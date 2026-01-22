@@ -4,9 +4,23 @@
   box-sizing: border-box;
 }
 
+:root {
+  --bg: #f5f7fa;
+  --primary: #0b2545; 
+  --muted: #5a5a7a; 
+  --card-shadow: rgba(207, 212, 222, 0.3);
+  --startup: #16a085; 
+  --enterprise: #6c5ce7;
+  --freelancer: #ff9f43; 
+  --agency: #2f3640; 
+  --custom: #d63384; 
+  --professional: #0984e3; 
+  --badge: #ff6b6b;
+}
+
 body {
   font-family: "Poppins", sans-serif;
-  background-color: #f5f7fa;
+  background-color: var(--bg);
   padding: 30px;
   display: flex;
   flex-direction: column;
@@ -16,14 +30,14 @@ body {
 
 h1 {
   text-align: center;
-  color: #000446;
+  color: var(--primary);
   margin-bottom: 20px;
   font-weight: 700;
 }
 
 .subtitle {
   text-align: center;
-  color: #5a5a7a;
+  color: var(--muted);
   margin-bottom: 40px;
   max-width: 700px;
   font-weight: 300;
@@ -46,8 +60,8 @@ h1 {
   padding-top: 10px;
   padding-bottom: 20px;
   border-radius: 10px;
-  border-bottom: 4px solid #000446;
-  box-shadow: 0 6px 30px rgba(207, 212, 222, 0.3);
+  border-bottom: 4px solid var(--primary);
+  box-shadow: 0 6px 30px var(--card-shadow);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -78,6 +92,8 @@ h1 {
   margin-left: -0.65rem;
   padding: .2rem 1.2rem;
   border-radius: 5px 0 0 5px;
+  z-index: 1;
+  color: var(--primary);
 }
 
 .etiquet-price p {
@@ -108,7 +124,7 @@ h1 {
   right: 0px;
   width: 0;
   height: 0;
-  z-index: -6;
+  z-index: 0;
 }
 
 .benefits-list {
@@ -149,7 +165,7 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #000446;
+  background: var(--primary);
   color: #fff;
   padding: 10px 15px;
   border-radius: 5px;
@@ -175,49 +191,54 @@ h1 {
 /* Popular badge */
 .popular-badge {
   position: absolute;
-  top: -10px;
-  right: 20px;
-  background: #ff4757;
+  top: 5px;
+  right: 0px;
+  background: var(--badge);
   color: white;
   padding: 4px 12px;
+  
   font-size: 12px;
   border-radius: 20px;
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
   font-weight: 600;
   box-shadow: 0 4px 8px rgba(255, 71, 87, 0.3);
 }
 
 /* Variant 1: Startup Plan */
 .plan-card.startup {
-  border-bottom-color: #00b894;
+  border-bottom-color: var(--startup);
   position: relative;
 }
 
 .plan-card.startup .etiquet-price {
-  background: #00b894;
+  background: var(--startup);
+  color: #fff;
 }
 
 .plan-card.startup .etiquet-price div {
-  border-top: 13px solid #00a085;
+  border-top: 13px solid #12806f;
   border-bottom: 10px solid transparent;
   border-right: 13px solid transparent;
 }
 
 .plan-card.startup .button-get-plan a {
-  background: #00b894;
+  background: var(--startup);
 }
 
 .plan-card.startup .button-get-plan a:hover {
-  background: #00a085;
+  background: #12806f;
 }
 
 /* Variant 2: Enterprise Plan */
 .plan-card.enterprise {
-  border-bottom-color: #6c5ce7;
+  border-bottom-color: var(--enterprise);
   position: relative;
 }
 
 .plan-card.enterprise .etiquet-price {
-  background: #6c5ce7;
+  background: var(--enterprise);
+  color: #fff;
 }
 
 .plan-card.enterprise .etiquet-price div {
@@ -227,7 +248,7 @@ h1 {
 }
 
 .plan-card.enterprise .button-get-plan a {
-  background: #6c5ce7;
+  background: var(--enterprise);
 }
 
 .plan-card.enterprise .button-get-plan a:hover {
@@ -236,34 +257,36 @@ h1 {
 
 /* Variant 3: Freelancer Plan */
 .plan-card.freelancer {
-  border-bottom-color: #fd9644;
+  border-bottom-color: var(--freelancer);
 }
 
 .plan-card.freelancer .etiquet-price {
-  background: #fd9644;
+  background: var(--freelancer);
+  color: #fff;
 }
 
 .plan-card.freelancer .etiquet-price div {
-  border-top: 13px solid #e67e22;
+  border-top: 13px solid #e07a2b;
   border-bottom: 10px solid transparent;
   border-right: 13px solid transparent;
 }
 
 .plan-card.freelancer .button-get-plan a {
-  background: #fd9644;
+  background: var(--freelancer);
 }
 
 .plan-card.freelancer .button-get-plan a:hover {
-  background: #e67e22;
+  background: #e07a2b;
 }
 
 /* Variant 4: Agency Plan */
 .plan-card.agency {
-  border-bottom-color: #2d3436;
+  border-bottom-color: var(--agency);
 }
 
 .plan-card.agency .etiquet-price {
-  background: #2d3436;
+  background: var(--agency);
+  color: #fff;
 }
 
 .plan-card.agency .etiquet-price div {
@@ -273,7 +296,7 @@ h1 {
 }
 
 .plan-card.agency .button-get-plan a {
-  background: #2d3436;
+  background: var(--agency);
 }
 
 .plan-card.agency .button-get-plan a:hover {
@@ -282,35 +305,37 @@ h1 {
 
 /* Variant 5: Custom Plan */
 .plan-card.custom {
-  border-bottom-color: #e84393;
+  border-bottom-color: var(--custom);
 }
 
 .plan-card.custom .etiquet-price {
-  background: #e84393;
+  background: var(--custom);
+  color: #fff;
 }
 
 .plan-card.custom .etiquet-price div {
-  border-top: 13px solid #d6307a;
+  border-top: 13px solid #c21f6a;
   border-bottom: 10px solid transparent;
   border-right: 13px solid transparent;
 }
 
 .plan-card.custom .button-get-plan a {
-  background: #e84393;
+  background: var(--custom);
 }
 
 .plan-card.custom .button-get-plan a:hover {
-  background: #d6307a;
+  background: #c21f6a;
 }
 
 /* Variant 6: Professional Plan */
 .plan-card.professional {
-  border-bottom-color: #0984e3;
+  border-bottom-color: var(--professional);
   position: relative;
 }
 
 .plan-card.professional .etiquet-price {
-  background: #0984e3;
+  background: var(--professional);
+  color: #fff;
 }
 
 .plan-card.professional .etiquet-price div {
@@ -320,7 +345,7 @@ h1 {
 }
 
 .plan-card.professional .button-get-plan a {
-  background: #0984e3;
+  background: var(--professional);
 }
 
 .plan-card.professional .button-get-plan a:hover {
@@ -329,27 +354,27 @@ h1 {
 
 /* Icon colors for different variants */
 .plan-card.startup .benefits-list ul li svg {
-  fill: #00b894;
+  fill: var(--startup);
 }
 
 .plan-card.enterprise .benefits-list ul li svg {
-  fill: #6c5ce7;
+  fill: var(--enterprise);
 }
 
 .plan-card.freelancer .benefits-list ul li svg {
-  fill: #fd9644;
+  fill: var(--freelancer);
 }
 
 .plan-card.agency .benefits-list ul li svg {
-  fill: #2d3436;
+  fill: var(--agency);
 }
 
 .plan-card.custom .benefits-list ul li svg {
-  fill: #e84393;
+  fill: var(--custom);
 }
 
 .plan-card.professional .benefits-list ul li svg {
-  fill: #0984e3;
+  fill: var(--professional);
 }
 
 /* Responsive design */
